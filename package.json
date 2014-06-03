@@ -1,6 +1,6 @@
 {
-  "name": "backbone-boilerplate",
-  "version": "1.0.0",
+  "name": "backbone-boilerplate-sample",
+  "version": "0.1.0",
 
   "devDependencies": {
     "grunt": "~0.4.1",
