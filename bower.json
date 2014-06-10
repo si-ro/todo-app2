@@ -1,6 +1,5 @@
 {
   "name": "backbone-boilerplate-sample",
-
   "dependencies": {
     "html5-boilerplate": "~4.3.0",
     "almond": "~0.2.9",
@@ -12,6 +11,10 @@
     "jasmine": "~2.0.0",
     "mocha": "~1.17.1",
     "chai": "~1.9.0",
-    "sinon": "~1.8.2"
+    "sinon": "~1.8.2",
+    "layoutmanager": "~0.9.5",
+    "lodash-template-loader": "~0.1.5",
+    "backbone.localStorage": "~1.1.7",
+    "todomvc-common": "~0.1.4"
   }
 }

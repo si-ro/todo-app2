@@ -3,15 +3,24 @@ define(function(require, exports, module) {
 
   // External dependencies.
   var Backbone = require("backbone");
+  var Common = require("modules/Common");
+  var Todos = require("modules/collection/TodosCollection");
+  
+  var TodoRouter = Backbone.Router.extend({
+      routes: {
+          '*filter': 'setFilter'
+      },
 
-  // Defining the application router.
-  module.exports = Backbone.Router.extend({
-    routes: {
-      "": "index"
-    },
+      setFilter: function (param) {
+          // Set the current filter to be used
+          Common.TodoFilter = param || '';
 
-    index: function() {
-      console.log("Welcome to your / route.");
-    }
+          // Trigger a collection filter event, causing hiding/unhiding
+          // of the Todo view items
+          Todos.trigger('filter');
+      }
   });
+  
+  // Defining the application router.
+  module.exports = TodoRouter;
 });
