@@ -3,6 +3,7 @@ define(function(require, exports, module) {
 
   // External dependencies.
   var Backbone = require("backbone");
+  var Layout = require("layoutmanager");
   var Common = require("modules/Common");
   var Todos = require("modules/collection/TodosCollection");
   

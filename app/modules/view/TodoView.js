@@ -1,9 +1,9 @@
 /*global define*/
 define(function(require, exports, module) {
     'use strict';
-
+    var Backbone = require("backbone");
     var Common = require("modules/Common");
-    var TodoView = Backbone.View.extend({
+    var TodoView = Backbone.Layout.extend({
 
         tagName:  'li',
 
@@ -26,16 +26,27 @@ define(function(require, exports, module) {
             this.listenTo(this.model, 'destroy', this.remove);
             this.listenTo(this.model, 'visible', this.toggleVisible);
         },
-
-        // Re-render the titles of the todo item.
-        render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+        serialize : function() {
+            return this.model.toJSON();
+        },
+        beforeRender : function() {
+            
+        },
+        afterRender : function() {
             this.$el.toggleClass('completed', this.model.get('completed'));
 
             this.toggleVisible();
             this.$input = this.$('.edit');
-            return this;
         },
+        // Re-render the titles of the todo item.
+//        render: function () {
+//            this.$el.html(this.template(this.model.toJSON()));
+//            this.$el.toggleClass('completed', this.model.get('completed'));
+//
+//            this.toggleVisible();
+//            this.$input = this.$('.edit');
+//            return this;
+//        },
 
         toggleVisible: function () {
             this.$el.toggleClass('hidden',  this.isHidden());
